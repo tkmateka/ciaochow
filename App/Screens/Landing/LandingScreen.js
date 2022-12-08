@@ -20,7 +20,7 @@ export const LandingScreen = ({ navigation }) => {
           <Text style={styles.text}>Hungry? <Text style={{ fontWeight: 'bold' }}>CiaoChow</Text>  helps you find something to eat.</Text>
         </View>
         <View style={styles.row}>
-          <Button />
+          <Button navigation={navigation} />
         </View>
       </View>
     </>
