@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import { Text, StyleSheet, View, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { LightTheme } from '../../Components/Backgrounds/LightTheme';
-import { GreyInput } from '../../Components/Common/GreyInput';
+import { RegisterForm } from '../../Components/Common/RegisterForm';
 
 export const RegisterScreen = ({ navigation }) => {
-    const [submitted, setSubmitted] = useState(false);
-
     const female = require('../../../assets/images/female.png');
+    const goToLogin = () => navigation.navigate('Login', {
+        data: ''
+    });
 
     const RegisterPage = (
         <KeyboardAvoidingView
@@ -18,14 +18,11 @@ export const RegisterScreen = ({ navigation }) => {
                 <View style={styles.container}>
                     <View style={styles.row}>
                         <Text style={styles.register}>Register</Text>
-                        <Image source={female} style={styles.marginTop} />
+                        <Image source={female} style={styles.marginTop50} />
                     </View>
+                    <RegisterForm />
                     <View style={styles.row}>
-                        <GreyInput
-                            formSubmitted={submitted}
-                            errorMessage="This Field is required"
-                            placeholder="My placeholder"
-                        />
+                        <Text style={styles.haveAccount}>Have an account? <Text style={{ fontWeight: 'bold' }} onPress={() => goToLogin()}>Login</Text></Text>
                     </View>
                 </View>
             </ScrollView>
@@ -55,7 +52,12 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginBottom: 70,
     },
-    marginTop: {
+    marginTop50: {
         marginTop: 50
+    },
+    haveAccount: {
+        color: '#4CAD73',
+        padding: 10,
+        textAlign: 'center'
     }
 });
