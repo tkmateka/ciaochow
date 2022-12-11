@@ -26,6 +26,11 @@ export const LandingScreen = ({ navigation }) => {
         <View style={styles.row}>
           <WhiteButton title="Get Started" buttonHandler={buttonHandler} />
         </View>
+        <View style={styles.wrapDot}>
+          <Text style={styles.dot} >  ●  </Text>
+          <Text style={styles.dot} >  ●  </Text>
+          <Text style={styles.dotActive} >  ●  </Text>
+        </View>
       </View>
     </>
   )
@@ -63,5 +68,20 @@ const styles = StyleSheet.create({
   },
   marginBottom50: {
     marginBottom: 50
-  }
+  },
+  wrapDot: {
+    marginTop: 30,
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  dotActive: {
+    margin: 1,
+    fontSize: 25,
+    color: 'white'
+  },
+  dot: {
+    margin: 1,
+    fontSize: 25,
+    color: '#828282'
+  },
 });
