@@ -1,32 +1,36 @@
 import { Text, StyleSheet, View, Image } from 'react-native';
-import { LandingBackground } from '../../Components/Backgrounds/LandingBackground';
+import { DarkTheme } from '../../Components/Backgrounds/DarkTheme';
 import { GroupedImages } from '../../Components/Common/GroupedImages';
-import { Button } from '../../Components/Common/Button';
+import { WhiteButton } from '../../Components/Common/WhiteButton';
 
 export const LandingScreen = ({ navigation }) => {
   const carot = require('../../../assets/icons/carot.png');
 
+  const buttonHandler = () => navigation.navigate('Register', {
+    data: 'Some data from the Landing Page'
+  })
+
   const LandingPage = (
     <>
       <View style={styles.container}>
-        <View style={[styles.row, styles.marginBottom]}>
+        <View style={[styles.row, styles.marginBottom50]}>
           <Text style={styles.companyName}>CiaoChow</Text>
           <Image source={carot} />
         </View>
-        <View style={styles.marginBottom}>
+        <View style={styles.marginBottom30}>
           <GroupedImages />
         </View>
         <View style={styles.row}>
           <Text style={styles.text}>Hungry? <Text style={{ fontWeight: 'bold' }}>CiaoChow</Text>  helps you find something to eat.</Text>
         </View>
         <View style={styles.row}>
-          <Button navigation={navigation} />
+          <WhiteButton title="Get Started" buttonHandler={buttonHandler} />
         </View>
       </View>
     </>
   )
 
-  return <LandingBackground page={LandingPage} />
+  return <DarkTheme page={LandingPage} />
 }
 
 const styles = StyleSheet.create({
@@ -54,7 +58,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 40
   },
-  marginBottom: {
+  marginBottom30: {
     marginBottom: 30
+  },
+  marginBottom50: {
+    marginBottom: 50
   }
 });
