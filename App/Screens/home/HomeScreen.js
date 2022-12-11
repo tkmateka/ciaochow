@@ -1,15 +1,15 @@
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Text, StyleSheet, View, Image, SafeAreaView } from 'react-native';
+import { Carousel } from '../../Components/Carousel/Carousel';
+import { LightTheme } from '../../Components/Backgrounds/LightTheme';
 
 export const HomeScreen = () => {
-    return <View style={styles.container}>
-        <Image
-            source={{
-                uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-            }}
-            style={{ width: 200, height: 200 }}
-        />
-        <Text>Home Screen</Text>
-    </View>
+    const HomePage = (
+        <SafeAreaView>
+            <Carousel />
+        </SafeAreaView>
+    )
+
+    return <LightTheme page={HomePage} />
 }
 
 const styles = StyleSheet.create({
